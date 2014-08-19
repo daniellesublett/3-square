@@ -10,6 +10,8 @@ require 'rubygems'
 require 'httparty'
 require 'uri'
 require 'pathname'
+require 'yummly'
+require 'dotenv'
 
 require 'pg'
 require 'active_record'
