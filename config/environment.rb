@@ -12,6 +12,7 @@ require 'uri'
 require 'pathname'
 require 'yummly'
 require 'dotenv'
+Dotenv.load
 
 require 'pg'
 require 'active_record'

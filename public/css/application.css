@@ -1,0 +1,86 @@
+.header {
+/*  GRADIENTS!========== */
+  padding: 5em;
+
+  margin: auto;
+
+
+  background: -moz-linear-gradient(top,  rgba(30,87,153,1) 0%, rgba(125,185,232,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(100%,rgba(125,185,232,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -ms-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* W3C */
+
+background-image: ;
+
+}
+
+h1 {
+  font-size: 7em;
+  float: clear;
+  /*text-align: center;*/
+  font-family: helvetica;
+  font-variant: bold;
+
+}
+
+.navbar{
+  list-style: none;
+}
+
+.recipe{
+  border: 1px solid black;
+}
+
+.main{
+  border: 1px solid black;
+}
+
+.navbar li{
+  list-style: none;
+  color: black;
+  padding-right: 3em;
+  margin: 20px;
+  float: left;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.navbar a{
+  color: black;
+}
+
+/* GRID */
+
+
+.span_4_of_4 {
+  width: 100%;
+}
+
+.span_3_of_4 {
+  width: 74.6%;
+}
+
+.span_2_of_4 {
+  width: 49.2%;
+}
+
+.span_1_of_4 {
+  width: 23.8%;
+}
+
+/*
+@media only screen and (max-width: 480px) {
+  .span_4_of_4 {
+    width: 100%;
+  }
+  .span_3_of_4 {
+    width: 100%;
+  }
+  .span_2_of_4 {
+    width: 100%;
+  }
+  .span_1_of_4 {
+    width: 100%;
+  }
+}*/

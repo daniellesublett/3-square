@@ -1,25 +1,34 @@
-APP_KEY = ''
-APP_ID = ''
-
 get '/' do
-# @recipes = Recipe.all
-# @method = params[:method]
-#   # TODO get dotenv gem to hide api keys.
 
-# result = Yummly.search('Onion soup')
-# result.total # returns 43350
-# result.size # returns 10
-# result.collect { |recipe| recipe.name }
+  erb :index
 
-# p result
-erb :index
 end
 
+get '/my_recipes' do
+  #list all recipes
+  @recipes = Recipe.all
+  erb :index
+end
+
+#doesn't work as a get route. why?
 post '/search_recipe' do
-  #need to interpolate spaces in the ingredients gsub + for spaces.
-  search_results = HTTParty.get("http://api.yummly.com/v1/api/recipes?_app_id=#{APP_ID}&_app_key=#{APP_KEY}&#{params[:ingredients_search]}")
-  pp search_results
+   search_results = HTTParty.get("http://api.yummly.com/v1/api/recipes?_app_id=#{ENV['YUMMLY_ID']}&_app_key=#{ENV['YUMMLY_KEY']}&allowedIngredient[]=#{params[:ingredients_search]}")
+   # search_results = JSON.parse(search_results.body)
+   # search_results["matches"][]["ingredients"]
+   # content_type :json
+   search_results = JSON.parse(search_results.body)
+   @first_ten = search_results["matches"].take(10)
+   erb :search
+
+   # recipe_parsed = {search_results["matches"][0]["recipeName"] => search_results["matches"][0]["ingredients"]}.to_json
+
+
 end
+
+# post '/search_recipes' do
+#   api = Yummly::Client.new(params)
+#   api.recipes
+# end
 
 # if @method == "delete" || @method == "edit"
 #    @recipe = Recipe.find params[:id]
