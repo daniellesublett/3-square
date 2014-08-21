@@ -11,8 +11,6 @@ require 'httparty'
 require 'uri'
 require 'pathname'
 require 'yummly'
-require 'dotenv' if development?
-Dotenv.load if development
 
 require 'pg'
 require 'active_record'
@@ -22,6 +20,8 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 require 'debugger' if development?
 require 'erb'
+require 'dotenv' if development?
+Dotenv.load if development?
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
