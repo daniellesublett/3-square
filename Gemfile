@@ -4,7 +4,7 @@ ruby '2.0.0'
 #dotenv loads environment variables
 #this is the test version.
 #for deploy use: gem 'dotenv-deployment'
-gem 'dotenv-rails', :groups => [:development, :test]
+gem 'dotenv', :groups => [:development, :test]
 
 # PostgreSQL driver
 gem 'pg'

@@ -11,8 +11,8 @@ require 'httparty'
 require 'uri'
 require 'pathname'
 require 'yummly'
-require 'dotenv'
-Dotenv.load
+require 'dotenv' if development?
+Dotenv.load if development
 
 require 'pg'
 require 'active_record'
