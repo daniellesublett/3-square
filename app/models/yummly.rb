@@ -9,6 +9,7 @@ module Yummly
       search_results = self.get(api_uri)
       search_results = JSON.parse(search_results.body)
       search_results["matches"].take(10)
+
     end
 
     # first_ten = self.recipes(ingredients_search)

@@ -18,6 +18,11 @@ post '/search_recipe' do
    {results_html: search_results}.to_json
 end
 
+# post '/menu' do
+
+
+# end
+
 # post '/search_recipes' do
 #   api = Yummly::Client.new(params)
 #   api.recipes

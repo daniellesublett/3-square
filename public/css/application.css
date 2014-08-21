@@ -16,7 +16,7 @@ background-image: ;
 }
 
 h1 {
-  font-size: 7em;
+  font-size: 5em;
   float: clear;
   /*text-align: center;*/
   font-family: helvetica;
@@ -30,23 +30,30 @@ h1 {
 
 .recipe{
   border: 1px solid black;
-  display: inline-block;
 }
 
-.search_results{
-  border: 1px solid black;
+.recipe_search_results{
+  margin: auto;
 }
 
 .search_results_list_items{
   list-style: none;
-  float: clear;
-  margin: 10px;
+  font-family: helvetica;
+  font-size: 1em;
+  padding-right: 3em;
+  padding: 1em;
+  margin: 20px;
+  float: left;
+  font-size: 1em;
+  font-weight: bold;
+  position: relative;
 }
 
 .navbar li{
   list-style: none;
   color: black;
   padding-right: 3em;
+  padding: 1em;
   margin: 20px;
   float: left;
   font-size: 1em;
@@ -57,7 +64,8 @@ h1 {
   color: black;
 }
 
-/* GRID */
+
+/* GRID
 
 
 .span_4_of_4 {

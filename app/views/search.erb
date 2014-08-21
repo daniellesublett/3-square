@@ -1,11 +1,15 @@
 
-<div class="search_results">
+<div class="span_4_of_4">
   <ul><% @first_ten.each do |recipe| %>
-   <li class="search_results_list_items"><a href="http://yummly.com/recipe/<%=recipe["id"]%>" ><%= recipe["recipeName"] %></a></br>
+   <li class="search_results_list_items span_1_of_4">
+    <a href="http://yummly.com/recipe/<%= recipe["id"] %>">
+      <%= recipe["recipeName"] %></a></br>
        <% recipe["ingredients"].each do |ingredient| %>
           <%= ingredient %><br/>
         <% end %>
-   </li>
-  <% end %></ul>
+       <button id="save_recipe_button">Save this Recipe</button>
+     </li>
+   <% end %>
+  </ul>
 </div>
 
