@@ -1,41 +1,60 @@
 get '/' do
-  # @recipes = Recipe.all
-  @method = params[:method]
-  # TODO get dotenv gem to hide api keys.
-  # search_results = HTTParty.get('http://api.yummly.com/v1/api/recipes?_app_id=XXXXfef5&_app_key=XXXXX&vegetarian')
-  debugger
-  if @method == "delete" || @method == "edit"
-     @recipe = Recipe.find params[:id]
-  end
+
+  erb :index
+
+end
+
+
+get '/my_recipes' do
+  #list all saved recipes
+  @recipes = Recipe.all
   erb :index
 end
 
-post '/recipes' do
-  p params
-  @recipe = Recipe.new
-  @recipe.title = params[:title]
-  @recipe.content = params[:content]
-  @recipe.save
-  redirect '/'
+post '/search_recipe' do
+   @first_ten = Yummly::Client.recipes(params[:ingredients_search])
+   search_results = erb :search, :layout => false
+   content_type :json
+   {results_html: search_results}.to_json
 end
 
-get '/recipes/:id' do
-  @recipe = Recipe.find params[:id]
-  @recipe.title = params[:title]
-  @recipe.content = params[:content]
-  @recipe.save
-  redirect '/'
-end
+# post '/search_recipes' do
+#   api = Yummly::Client.new(params)
+#   api.recipes
+# end
 
-delete '/recipes/:id' do
-  @recipe = Recipe.find params[:id]
-  @recipe.destroy
-  redirect '/'
-end
+# if @method == "delete" || @method == "edit"
+#    @recipe = Recipe.find params[:id]
+# end
+#   erb :index
+# end
 
-put '/recipes/:id' do
-  @recipe = Recipe.find params[:id]
-  @recipe.update_attributes(title: params[:title], content: params[:content])
-  redirect '/'
-end
+# post '/recipes' do
+#   p params
+#   @recipe = Recipe.new
+#   @recipe.title = params[:title]
+#   @recipe.content = params[:content]
+#   @recipe.save
+#   redirect '/'
+# end
+
+# get '/recipes/:id' do
+#   @recipe = Recipe.find params[:id]
+#   @recipe.title = params[:title]
+#   @recipe.content = params[:content]
+#   @recipe.save
+#   redirect '/'
+# end
+
+# delete '/recipes/:id' do
+#   @recipe = Recipe.find params[:id]
+#   @recipe.destroy
+#   redirect '/'
+# end
+
+# put '/recipes/:id' do
+#   @recipe = Recipe.find params[:id]
+#   @recipe.update_attributes(title: params[:title], content: params[:content])
+#   redirect '/'
+# end
 

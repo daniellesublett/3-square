@@ -25,3 +25,9 @@ chromedriver.log
 bin/
 .env
 *.swp
+
+Yummly.configure do |config|
+  config.app_id = "5330fef5"
+  config.app_key = "a85eaf71b9918d6ec019eb5f16e99337"
+  config.use_ssl = true # Default is false
+end
