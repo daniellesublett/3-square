@@ -1,8 +1,11 @@
-<div>
+
+<div class="search_results">
   <ul><% @first_ten.each do |recipe| %>
-
-   <li><%= recipe["recipeName"] %></li>
-
+   <li class="search_results_list_items"><a href="http://yummly.com/recipe/<%=recipe["id"]%>" ><%= recipe["recipeName"] %></a></br>
+       <% recipe["ingredients"].each do |ingredient| %>
+          <%= ingredient %><br/>
+        <% end %>
+   </li>
   <% end %></ul>
 </div>
 

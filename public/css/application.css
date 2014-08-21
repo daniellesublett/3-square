@@ -30,10 +30,17 @@ h1 {
 
 .recipe{
   border: 1px solid black;
+  display: inline-block;
 }
 
-.main{
+.search_results{
   border: 1px solid black;
+}
+
+.search_results_list_items{
+  list-style: none;
+  float: clear;
+  margin: 10px;
 }
 
 .navbar li{

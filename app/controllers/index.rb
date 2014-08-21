@@ -4,25 +4,18 @@ get '/' do
 
 end
 
+
 get '/my_recipes' do
-  #list all recipes
+  #list all saved recipes
   @recipes = Recipe.all
   erb :index
 end
 
-#doesn't work as a get route. why?
 post '/search_recipe' do
-   search_results = HTTParty.get("http://api.yummly.com/v1/api/recipes?_app_id=#{ENV['YUMMLY_ID']}&_app_key=#{ENV['YUMMLY_KEY']}&allowedIngredient[]=#{params[:ingredients_search]}")
-   # search_results = JSON.parse(search_results.body)
-   # search_results["matches"][]["ingredients"]
-   # content_type :json
-   search_results = JSON.parse(search_results.body)
-   @first_ten = search_results["matches"].take(10)
-   erb :search
-
-   # recipe_parsed = {search_results["matches"][0]["recipeName"] => search_results["matches"][0]["ingredients"]}.to_json
-
-
+   @first_ten = Yummly::Client.recipes(params[:ingredients_search])
+   search_results = erb :search, :layout => false
+   content_type :json
+   {results_html: search_results}.to_json
 end
 
 # post '/search_recipes' do

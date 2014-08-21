@@ -10,8 +10,8 @@
       <li><a href="MENU ERB">Menu Planner</a></li>
       <li><a href="SHOPPING LIST ERB">Shopping List</a></li>
        <li><div class="recipebox">
-      <form action="/search_recipe" method="post">
-        <input type="text" name="ingredients_search" placeholder="Placeholder"/>
+      <form action="/search_recipe" method="post" id="search">
+        <input type="text" name="ingredients_search" placeholder="Type an Ingredient"/>
         <input type="submit" value="Search Recipes" class="add" >
       </form>
      </div></li>
@@ -20,19 +20,12 @@
 
 
 
-<!-- <div class="main span_3_of_4 ">
-    <div class="recipe_card">
-      ERB MEAL AND DAY
-      <div class="recipe_image">
-        ERB IMAGE
-      </div>
-      <div class="recipe_text">
-       ERB INGREDIENTS<br/>
-       ERB DESCRIPTION
-       ERB INSTRUCTIONS
-      </div>
-    </div>
-  </div> -->
+<!-- <div class="main span_3_of_4 "> -->
+<div id="recipe-search-results" class="span_4_of_4">
+
+
+</div>
+
 
 </div>
 
