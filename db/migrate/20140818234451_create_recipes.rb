@@ -1,9 +1,10 @@
 class CreateRecipes < ActiveRecord::Migration
   def change
     create_table :recipes do |t|
-      t.string :title
-      t.integer :meal_id
-      t.text :link
+      t.string :recipe_name
+      t.text :recipe_link
+      t.text :image_link
+      t.text :ingredients
       t.timestamps
     end
   end

@@ -1,17 +1,16 @@
 .header {
-/*  GRADIENTS!========== */
-  padding: 5em;
+  padding: 3em;
+
 
   margin: auto;
-
+/*  GRADIENTS!========== */
 
   background: -moz-linear-gradient(top,  rgba(30,87,153,1) 0%, rgba(125,185,232,0) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(100%,rgba(125,185,232,0))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* Chrome10+,Safari5.1+ */
-background: -ms-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* IE10+ */
-background: linear-gradient(to bottom,  rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* W3C */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(100%,rgba(125,185,232,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -ms-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%); /* W3C */
 
-background-image: ;
 
 }
 
@@ -19,34 +18,57 @@ h1 {
   font-size: 5em;
   float: clear;
   /*text-align: center;*/
-  font-family: helvetica;
+  font-family: ;
   font-variant: bold;
 
 }
+
 
 .navbar{
   list-style: none;
 }
 
-.recipe{
+/*.recipe{
   border: 1px solid black;
-}
+}*/
 
 .recipe_search_results{
   margin: auto;
+}
+
+.recipe_title{
+  font-size: 1em;
+  font-family: helvetica;
+  text-align: center;
+
+}
+
+.recipe_imgs{
+  width: 150px;
+  height: 150px;
+  border: 1px solid black;
+  padding: 5px;
+  margin-left: 40px;
+
+}
+
+.recipe_ingredients{
+  text-align: center;
 }
 
 .search_results_list_items{
   list-style: none;
   font-family: helvetica;
   font-size: 1em;
-  padding-right: 3em;
-  padding: 1em;
-  margin: 20px;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 1em;
   float: left;
-  font-size: 1em;
-  font-weight: bold;
-  position: relative;
+}
+
+#recipe_save{
+ border: 1px solid black;
+ float: left;
 }
 
 .navbar li{
@@ -65,7 +87,7 @@ h1 {
 }
 
 
-/* GRID
+ GRID
 
 
 .span_4_of_4 {
@@ -98,4 +120,4 @@ h1 {
   .span_1_of_4 {
     width: 100%;
   }
-}*/
+}

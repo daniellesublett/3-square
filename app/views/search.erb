@@ -1,13 +1,19 @@
-
-<div class="span_4_of_4">
+<div>
   <ul><% @first_ten.each do |recipe| %>
    <li class="search_results_list_items span_1_of_4">
-    <a href="http://yummly.com/recipe/<%= recipe["id"] %>">
-      <%= recipe["recipeName"] %></a></br>
+    <p class="recipe_title"><a href="http://yummly.com/recipe/<%= recipe["id"] %>">
+      <%= recipe["recipeName"] %></a></p>
+      <img class="recipe_imgs" src="<%= recipe["imageUrlsBySize"]["90"] %>"><br/>
        <% recipe["ingredients"].each do |ingredient| %>
-          <%= ingredient %><br/>
+          <p class="recipe_ingredients"><%= ingredient %><br/></p>
         <% end %>
-       <button id="save_recipe_button">Save this Recipe</button>
+      <form action="/recipe_save" method="post">
+
+        <input type="hidden" name = "recipeName" value = "<%= recipe["recipeName"] %>">
+        <input type="hidden" name = "ingredients" value = "<%= recipe["ingredients"][0..-1].join("")%>">
+        <input type="hidden" name = "image" value = "<%= recipe["imageUrlsBySize"]["90"] %>">
+        <input type="submit" value="Save Ingredients to Shopping List" class="save_recipe_button">
+      </form>
      </li>
    <% end %>
   </ul>

@@ -1,32 +1,37 @@
-get '/' do
-
-  erb :index
-
-end
-
-
-get '/my_recipes' do
-  #list all saved recipes
-  @recipes = Recipe.all
+require 'pp'
+  get '/' do
   erb :index
 end
+
 
 post '/search_recipe' do
    @first_ten = Yummly::Client.recipes(params[:ingredients_search])
    search_results = erb :search, :layout => false
    content_type :json
    {results_html: search_results}.to_json
+
 end
 
-# post '/menu' do
+post '/recipe_save' do
+   p @name = params[:recipeName]
+   p @ingredients = params[:ingredients]
+   p @image_link = params[:image]
+   Recipe.create(recipe_name: @name, image_link: @image_link)
+  erb :menu
+end
+
+get '/shopping_list' do
+
+  erb :shopping_list
+end
 
 
-# end
+get '/menu' do
+  @recipes = Recipe.all
+  erb :menu
 
-# post '/search_recipes' do
-#   api = Yummly::Client.new(params)
-#   api.recipes
-# end
+end
+
 
 # if @method == "delete" || @method == "edit"
 #    @recipe = Recipe.find params[:id]
