@@ -10,9 +10,11 @@
       <form action="/recipe_save" method="post">
 
         <input type="hidden" name = "recipeName" value = "<%= recipe["recipeName"] %>">
-        <input type="hidden" name = "ingredients" value = "<%= recipe["ingredients"][0..-1].join("")%>">
+        <% recipe["ingredients"].each do |ingredient| %>
+          <input type="hidden" name="ingredients[]" value="<%= ingredient %>">
+        <% end %>
         <input type="hidden" name = "image" value = "<%= recipe["imageUrlsBySize"]["90"] %>">
-        <input type="submit" value="Save Ingredients to Shopping List" class="save_recipe_button">
+        <input type="submit" value="Save Recipe" class="save_recipe_button">
       </form>
      </li>
    <% end %>

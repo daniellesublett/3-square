@@ -13,22 +13,22 @@ post '/search_recipe' do
 end
 
 post '/recipe_save' do
-   p @name = params[:recipeName]
-   p @ingredients = params[:ingredients]
-   p @image_link = params[:image]
-   Recipe.create(recipe_name: @name, image_link: @image_link)
-  erb :menu
+  name = params[:recipeName]
+  ingredients = params[:ingredients]
+  image_link = params[:image]
+  recipe = Recipe.create(recipe_name: name, image_link: image_link)
+  ingredient_hashes = ingredients.map do |ingredient_name|
+    { name: ingredient_name }
+  end
+  recipe.ingredients.build(ingredient_hashes)
+  recipe.save!
+  redirect '/saved_recipes'
 end
 
-get '/shopping_list' do
-
-  erb :shopping_list
-end
-
-
-get '/menu' do
+get '/saved_recipes' do
   @recipes = Recipe.all
-  erb :menu
+  erb :saved_recipes
+end
 
 end
 
