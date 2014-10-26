@@ -30,6 +30,10 @@ get '/saved_recipes' do
   erb :saved_recipes
 end
 
+post '/delete_recipe' do
+  recipe_id = params[:recipe_id]
+  Recipe.delete(recipe_id)
+  body ""
 end
 
 
