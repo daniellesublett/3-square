@@ -1,15 +1,22 @@
 require 'pp'
-  get '/' do
+
+get '/' do
+  @ajax_search = true
+  @first_ten = []
   erb :index
 end
 
+post '/' do
+  @ajax_search = true
+  @first_ten = Yummly::Client.recipes(params[:ingredients_search])
+  erb :index
+end
 
 post '/search_recipe' do
    @first_ten = Yummly::Client.recipes(params[:ingredients_search])
    search_results = erb :search, :layout => false
    content_type :json
    {results_html: search_results}.to_json
-
 end
 
 post '/recipe_save' do

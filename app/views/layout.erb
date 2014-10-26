@@ -18,7 +18,25 @@
   <title>3 Square</title>
 </head>
 <body>
-  <%= yield %>
+  <div class="container span_4_of_4">
+    <div class="header span_4_of_4">
+      <h1 class="3square span_2_of_4">3 Square</h1>
+    </div>
+
+    <nav class="topnav span_4_of_4">
+      <ul class="navbar">
+        <li><a href="/">Search Recipes</a></li>
+        <li><a href="/saved_recipes">Saved Recipes</a></li>
+        <li><div class="search">
+          <form action="/" method="post" id="search" data-ajax-search="<%= @ajax_search %>">
+            <input type="text" name="ingredients_search" placeholder="Type an Ingredient"/>
+            <input type="submit" value="Search Ingredients" class="add" >
+          </form>
+        </div></li>
+      </ul>
+    </nav>
+    <%= yield %>
+  </div>
   <script src="/js/application.js"></script>
 </body>
 </html>

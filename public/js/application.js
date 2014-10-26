@@ -1,21 +1,28 @@
 
 function bindEvents(){
   // submit ingretient from searchbar and display search results
-  $("#search").on("submit", showRecipes);
-  // $(".save_recipe_button").on("click", saveRecipe)
+  $("#search").on("submit", handleSearch);
   $(".delete_recipe_button").on("click", deleteRecipe);
 
 }
 
-function showRecipes(event){
-  event.preventDefault();
+function handleSearch(event){
+  if ($('#search').data('ajax-search')) {
+    event.preventDefault();
+    showRecipes();
+  } else {
+    return true;
+  }
+}
+
+function showRecipes(){
   var searchResults = $.ajax({
     url: '/search_recipe',
     type: "POST",
     data: $("#search").serialize()
   });
   searchResults.done(function(data){
-    $("#recipe-search-results").append(data.results_html);
+    $("#recipe-search-results").html(data.results_html);
   });
 }
 
