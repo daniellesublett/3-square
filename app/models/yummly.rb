@@ -10,16 +10,5 @@ module Yummly
       search_results = JSON.parse(search_results.body)
       search_results["matches"].take(10)
     end
-
-
-
-
-    # def search_string
-    #   search = ""
-    #   @ingredients_search.each do |ingredient|
-    #     search += "&allowedIngredient[]=" + ingredient.gsub(" ", "+")
-    #   end
-    #   search
-    # end
   end
 end
