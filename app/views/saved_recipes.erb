@@ -1,0 +1,18 @@
+
+<div id="saved_recipes">
+  <% @recipes.each do |recipe| %>
+  <div class="saved_recipe" data-recipe-id="<%= recipe.id %>">
+    <%= recipe.recipe_name %>
+    <ul>
+    <% recipe.ingredients.each do |ingredient| %>
+      <li>
+        <%= ingredient.name %>
+      </li>
+    <% end %>
+    </ul>
+    <img src="<%= recipe.image_link %>">
+    <button class="delete_recipe_button" data-recipe-id="<%= recipe.id %>">Delete Recipe</button>
+  </div>
+  <% end %>
+
+</div>
